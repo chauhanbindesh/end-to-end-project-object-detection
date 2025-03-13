@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 197
+names: 
+
+roboflow:
+  workspace: object-detection-zvbyu
+  project: image_detection-nd3i8
+  version: 2
+  license: Private
+  url: https://app.roboflow.com/object-detection-zvbyu/image_detection-nd3i8/2
