@@ -1,11 +1,12 @@
-import os,sys
+import os
+import sys
 import yaml
+import shutil
 from ObjectDetection.utils.main_utils import read_yaml_file
 from ObjectDetection.logger import logging
 from ObjectDetection.exception import AppException
 from ObjectDetection.entity.config_entity import ModelTrainerConfig
 from ObjectDetection.entity.artifacts_entity import ModelTrainerArtifact
-
 
 
 class ModelTrainer:
@@ -27,7 +28,8 @@ class ModelTrainer:
             os.system("rm data.zip")
 
             with open("data.yaml", 'r') as stream:
-                num_classes = str(yaml.safe_load(stream)['nc'])
+                data = yaml.safe_load(stream)  # Load YAML file
+                num_classes = data.get('nc', 80)  # Use .get() to avoid KeyError
 
             model_config_file_name = self.model_trainer_config.weight_name.split(".")[0]
             print(model_config_file_name)
@@ -62,4 +64,3 @@ class ModelTrainer:
 
         except Exception as e:
             raise AppException(e, sys)
-

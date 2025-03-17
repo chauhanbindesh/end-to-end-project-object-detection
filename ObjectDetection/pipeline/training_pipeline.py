@@ -80,7 +80,7 @@ class TrainPipeline:
         try:
             model_trainer = ModelTrainer(
                 model_trainer_config=self.model_trainer_config,
-            )
+                )
             model_trainer_artifact = model_trainer.initiate_model_trainer()
             return model_trainer_artifact
 
