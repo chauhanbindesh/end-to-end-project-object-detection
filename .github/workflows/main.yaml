@@ -88,7 +88,7 @@ jobs:
          
       # - name: Stop and remove  container if running
       #   run: |
-      #    docker ps -q --filter "name=waste" | grep -q . && docker stop waste && docker rm -fv waste
+      #    docker ps -q --filter "name=objectdetection" | grep -q . && docker stop objectdetection && docker rm -fv objectdetection
        
       - name: Run Docker Image to serve users
         run: |
