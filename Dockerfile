@@ -1,9 +1,12 @@
-FROM python:3.10-slim
+FROM python:3.9
 
 WORKDIR /app
+
 COPY . /app
 
-RUN apt update -y && apt install awscli -y
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 unzip -y && pip install -r requirements.txt
-CMD ["python3", "app.py"]
+EXPOSE 8501
+
+CMD ["streamlit", "run", "app1.py", "--server.port=8501", "--server.enableCORS=false"]
