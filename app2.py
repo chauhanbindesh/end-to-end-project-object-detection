@@ -4,7 +4,7 @@ import base64
 import glob
 import subprocess
 import shutil
-
+import torch
 from ObjectDetection.pipeline.training_pipeline import TrainPipeline
 from ObjectDetection.utils.main_utils import decodeImage
 
